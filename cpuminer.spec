@@ -1,6 +1,6 @@
 Name:		cpuminer
 Version:	2.3.2
-Release:	5
+Release:	6
 Summary:	multi-threaded CPU miner for Litecoin and Bitcoin
 License:	GPLv2+
 Group:		Monitoring
