@@ -1,11 +1,11 @@
 Name:		cpuminer
-Version:	2.3.2
-Release:	6
+Version:	2.5.1
+Release:	1
 Summary:	multi-threaded CPU miner for Litecoin and Bitcoin
 License:	GPLv2+
 Group:		Monitoring
 URL:		https://github.com/pooler/cpuminer
-Source0:	https://github.com/downloads/pooler/cpuminer/pooler-%{name}-%{version}.tar.gz 
+Source0:	https://github.com/pooler/cpuminer/releases/download/v%{version}/pooler-cpuminer-%{version}.tar.gz
 
 BuildRequires:	pkgconfig(libcurl)
 
@@ -14,7 +14,7 @@ This is a multi-threaded CPU miner for Litecoin and Bitcoin,
 fork of Jeff Garzik's reference cpuminer.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %ifarch %arm
@@ -23,12 +23,13 @@ fork of Jeff Garzik's reference cpuminer.
 %global optflags %{optflags} -O3
 %endif
 
-%configure2_5x
-%make
+%configure
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc README AUTHORS NEWS
 %{_bindir}/minerd
+%{_mandir}/man1/minerd.1*
